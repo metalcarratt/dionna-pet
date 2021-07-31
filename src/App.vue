@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Title />
+    <img src="Diona.PNG" />
+    <Stats />
+    <PhoneIcon @click.native="usingPhone = true" />
+    <Phone v-if="usingPhone" @close="usingPhone = false" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Title from '@/components/Title.vue';
+import Stats from '@/components/Stats.vue';
+import PhoneIcon from '@/components/PhoneIcon.vue';
+import Phone from '@/components/phone/Phone.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { Title, Stats, PhoneIcon, Phone },
+  data() {
+    return {
+      usingPhone: false
+    }
   }
 }
 </script>
@@ -24,5 +33,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img {
+  height: 600px;
 }
 </style>
